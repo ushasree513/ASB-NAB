@@ -77,23 +77,23 @@
                     }
                 })
             .then(data => {
-                if (data.Status === "OK" && data.ContainerList.length > 0) {
-                    const rankedResults = data.ContainerList[0].RankedResults;
-                    rankedResults.forEach(result => {
-                        if (result.CustValidationData === "No defect") {
-                            console.log("CustValidationData is No defect");
+                    if (data.Status === "OK" && data.ContainerList.length > 0) {
+                        const rankedResults = data.ContainerList[0].RankedResults;
+                        const hasNoDefect = rankedResults.some(result => result.CustValidationData === "No defect");
+
+                        if (hasNoDefect) {
                             alert("Data is available");
+                            console.log("Data is available");
                             // Log the message or perform other actions here
                         } else {
-                            console.log("CustValidationData is not No defect");
                             alert("Data not available");
+                            console.log("Data is not available");
                             // Log a different message or handle the case differently
                         }
-                    });
-                } else {
-                    console.error('API response is not as expected');
-                }
-            })
+                    } else {
+                        console.error('API response is not as expected');
+                    }
+                })
             .catch(error => {
                 console.error('API request failed:', error);
                 // Optionally, display an error message to the user
