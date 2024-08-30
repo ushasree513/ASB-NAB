@@ -16,7 +16,19 @@
     height: 100vh;
     margin: 0;
 }
-
+select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+form {
+    margin-right: 0px !important;
+    display: flex;
+    flex-flow: wrap;
+}
 .container {
     text-align: center;
 }
@@ -34,7 +46,9 @@
     width: 450px;
     margin: 0 auto;
 }
-
+form div.input-group:nth-child(even) input {
+    width:89%;
+}
 .login-form h2 {
     margin-bottom: 20px;
 }
@@ -42,6 +56,10 @@
 .input-group {
     margin-bottom: 15px;
     text-align: left;
+    margin-bottom: 15px;
+    text-align: left;
+    width:50%;
+   
 }
 
 .input-group label {
@@ -50,7 +68,7 @@
 }
 
 .input-group input {
-    width: 100%;
+    width: 84%;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -129,7 +147,7 @@
             <img src="Logo.svg" alt="Logo">
         </div>
         <div class="login-form">
-            <h2>Customer Information Form</h2>
+            <h2>Credit Card Form</h2>
             <form style="margin-right:20px">
                 <div class="input-group">
                     <label for="firstName">First Name:</label>
@@ -143,8 +161,39 @@
                     <label for="customerId">Customer ID:</label>
                     <input type="text" id="customerId" name="customerId" required>
                 </div>
+                
+                <div class="input-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="Gender">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" id="dateOfBirth" name="DateOfBirth">
+                </div>
+                <div class="input-group">
+                    <label for="occupationCode">Occupation Code</label>
+                    <input type="text" id="occupationCode" name="OccupationCode">
+                </div>
+                <div class="input-group">
+                    <label for="taxIdNum">Tax ID Number</label>
+                    <input type="text" id="taxIdNum" name="TaxIDNum">
+                </div>
+                <div class="input-group">
+                    <label for="industryCode">Industry Code</label>
+                    <input type="text" id="industryCode" name="IndustryCode">
+                </div>
+                <div class="input-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="Address">
+                </div>
+                
               
-                <button type="button" onclick=submitForm() style="padding: 15px 28px;
+              
+                <button type="button" style="padding: 15px 28px;
                 justify-content: center;
                 width: 100%;
                 display: block;
@@ -161,21 +210,7 @@
                 </div>-->
             </form>
         </div>
-        <div class="register-link">
-            <p>Not an ASB customer? <a href="#">Register now</a></p>
-        </div>
-        <div class="footer">
-            <p>
-                FastNet is licensed to ASB Bank Limited and is solely for the use of persons authorised by ASB Bank Limited.
-                Do not access FastNet unless you have been specifically authorised to do so. Unauthorised access is prohibited.
-            </p>
-            <p>
-                <a href="#">Terms and conditions</a> | 
-                <a href="#">About security</a> | 
-                <a href="#">Privacy</a> | 
-                <a href="#">Internet access terms</a>
-            </p>
-        </div>
+       
     </div>
 
 
@@ -202,6 +237,8 @@
             
             
 
+            
+                
             const jsonData = {              
                     CustomerID: "1000001",
                     FirstName: "Jack",
@@ -210,9 +247,10 @@
                     IndustryCode: "20470"
 
             };
+            
 
            
-            fetch('https://lnd01.areteans.com/prweb/api/RealTimeTest/V1/RTEtrigger', {
+            fetch('https://lnd01.areteans.com/prweb/api/PegaMKTContainer/v4/container', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
