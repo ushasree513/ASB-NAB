@@ -1,22 +1,187 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Customer Information Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.logo img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 450px;
+    margin: 0 auto;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+.input-group input::placeholder {
+    color: #bbb;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me input {
+    margin-right: 10px;
+}
+
+.login-btn {
+    background-color: #f0ad4e;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #ec971f;
+}
+
+.forgot-links a {
+    color: #f0ad4e;
+    text-decoration: none;
+}
+
+.forgot-links a:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: #f0ad4e;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.footer a {
+    color: #f0ad4e;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+    </style>
 </head>
 <body>
-    <h1>Customer Information Form</h1>
-    <form id="customerForm">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required><br><br>
+    <div class="container">
+        <div class="logo">
+            <img src="Logo.svg" alt="Logo">
+        </div>
+        <div class="login-form">
+            <h2>Customer Information Form</h2>
+            <form style="margin-right:20px">
+                <div class="input-group">
+                    <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="input-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="input-group">
+                    <label for="customerId">Customer ID:</label>
+                    <input type="text" id="customerId" name="customerId" required>
+                </div>
+              
+                <button type="button" onclick=submitForm() style="padding: 15px 28px;
+                justify-content: center;
+                width: 100%;
+                display: block;
+                font-size: 1rem;
+                line-height: 1.43rem;
+                font-weight: 600;
+                letter-spacing: .03rem;
+                text-decoration: none;
+                color: #000;
+                background: #fcbd1b;">Submit</button>
+               <!-- <div class="forgot-links">
+                    <a href="#">Forgot your password?</a><br>
+                    <a href="#">Forgot your username?</a>
+                </div>-->
+            </form>
+        </div>
+        <div class="register-link">
+            <p>Not an ASB customer? <a href="#">Register now</a></p>
+        </div>
+        <div class="footer">
+            <p>
+                FastNet is licensed to ASB Bank Limited and is solely for the use of persons authorised by ASB Bank Limited.
+                Do not access FastNet unless you have been specifically authorised to do so. Unauthorised access is prohibited.
+            </p>
+            <p>
+                <a href="#">Terms and conditions</a> | 
+                <a href="#">About security</a> | 
+                <a href="#">Privacy</a> | 
+                <a href="#">Internet access terms</a>
+            </p>
+        </div>
+    </div>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br><br>
 
-        <label for="customerId">Customer ID:</label>
-        <input type="text" id="customerId" name="customerId" required><br><br>
 
-        <button type="button" onclick=submitForm()>Submit</button>
-    </form>
+
+   
 
     <script>
         function submitForm() {
